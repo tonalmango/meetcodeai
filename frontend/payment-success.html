@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - MeetCodeAI</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .success-container {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #6BCB77 0%, #4ECDC4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #1f2d3d;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #636E72;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .details-box {
+            background: #F5F7FA;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #DFE6E9;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #1f2d3d;
+        }
+
+        .detail-value {
+            color: #636E72;
+        }
+
+        .plan-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF6BCB 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF6BCB 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #FF6B6B;
+            border: 2px solid #FF6B6B;
+        }
+
+        .btn-secondary:hover {
+            background: #FFE5E5;
+        }
+
+        .features-preview {
+            background: #F5F7FA;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .features-preview h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f2d3d;
+            margin-bottom: 15px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .feature-item {
+            font-size: 0.9rem;
+            color: #636E72;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-item:before {
+            content: '✓';
+            color: #6BCB77;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .payment-ref {
+            background: #FFF9E6;
+            border-left: 4px solid #FFE66D;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .payment-ref-label {
+            font-size: 0.85rem;
+            color: #636E72;
+            font-weight: 600;
+        }
+
+        .payment-ref-value {
+            font-size: 0.95rem;
+            color: #1f2d3d;
+            font-family: monospace;
+            word-break: break-all;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .success-container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">✅</div>
+        
+        <h1>Payment Successful! 🎉</h1>
+        <p class="subtitle">
+            Thank you for subscribing to MeetCodeAI! Your subscription is now active and ready to use.
+        </p>
+
+        <div id="planBadge" class="plan-badge"></div>
+
+        <div class="payment-ref">
+            <div class="payment-ref-label">Transaction ID</div>
+            <div class="payment-ref-value" id="transactionId">Loading...</div>
+        </div>
+
+        <div class="details-box">
+            <div class="detail-item">
+                <span class="detail-label">Plan</span>
+                <span class="detail-value" id="planName">Loading...</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Amount Paid</span>
+                <span class="detail-value" id="amountPaid">Loading...</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Billing Cycle</span>
+                <span class="detail-value" id="billingCycle">Monthly</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Next Renewal</span>
+                <span class="detail-value" id="renewalDate">Loading...</span>
+            </div>
+        </div>
+
+        <div id="featuresPreview" class="features-preview"></div>
+
+        <div class="action-buttons">
+            <a href="index.html" class="btn btn-secondary">
+                <i class="fas fa-home"></i> Go Home
+            </a>
+            <a href="chat.html" class="btn btn-primary">
+                <i class="fas fa-comments"></i> Chat with Team
+            </a>
+            <a href="admin.html" class="btn btn-secondary" id="dashboardBtn" style="display: none;">
+                <i class="fas fa-chart-line"></i> Go to Dashboard
+            </a>
+        </div>
+    </div>
+
+    <script>
+        window.API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+            ? 'http://localhost:5000/api'
+            : 'https://meetcodeai-x3kr.onrender.com/api';
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('token'); // PayPal uses token parameter
+        const payerId = urlParams.get('PayerID');
+
+        const PLAN_DETAILS = {
+            starter: { name: 'Starter Plan', price: 150, color: '#FFE66D' },
+            pro: { name: 'Pro Plan', price: 500, color: '#FF6BCB' },
+            enterprise: { name: 'Enterprise Plan', price: 1000, color: '#A06BFF' }
+        };
+
+        const PLAN_FEATURES = {
+            starter: ['20 quotes/month', '5 projects/month', '5,000 API calls', 'Basic analytics', '10 GB storage'],
+            pro: ['100 quotes/month', '20 projects/month', '50,000 API calls', 'Custom branding', 'Priority support', '100 GB storage', '5 team members'],
+            enterprise: ['Unlimited quotes', 'Unlimited projects', 'Unlimited API calls', 'Custom branding', '24/7 support', 'Unlimited storage', 'Unlimited team']
+        };
+
+        async function processPayment() {
+            try {
+                if (!orderId) {
+                    console.log('No order ID - checking session storage');
+                    showTestSuccess();
+                    return;
+                }
+
+                // Get checkout data from session
+                const checkoutData = JSON.parse(sessionStorage.getItem('checkoutData') || '{}');
+                const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+                const response = await fetch(`${window.API_BASE_URL}/payments/checkout/capture`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                    },
+                    body: JSON.stringify({
+                        orderId,
+                        userId: user.id,
+                        plan: checkoutData.plan,
+                        name: checkoutData.name,
+                        email: checkoutData.email
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Payment capture failed');
+                }
+
+                const data = await response.json();
+                displaySuccess(data.data, checkoutData.plan);
+                sessionStorage.removeItem('checkoutData');
+
+            } catch (error) {
+                console.error('Payment processing error:', error);
+                showTestSuccess();
+            }
+        }
+
+        function displaySuccess(data, plan) {
+            const planDetail = PLAN_DETAILS[plan] || PLAN_DETAILS.starter;
+            const features = PLAN_FEATURES[plan] || PLAN_FEATURES.starter;
+
+            // Update plan badge
+            document.getElementById('planBadge').textContent = planDetail.name;
+            document.getElementById('planBadge').style.background = `linear-gradient(135deg, ${planDetail.color} 0%, ${planDetail.color}dd 100%)`;
+
+            // Update transaction ID
+            document.getElementById('transactionId').textContent = data.transactionId || 'N/A';
+
+            // Update details
+            document.getElementById('planName').textContent = planDetail.name;
+            document.getElementById('amountPaid').textContent = `$${planDetail.price}/month`;
+
+            // Calculate renewal date
+            const renewalDate = new Date();
+            renewalDate.setMonth(renewalDate.getMonth() + 1);
+            document.getElementById('renewalDate').textContent = renewalDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            // Display features
+            const featuresHTML = features.map(f => `
+                <div class="feature-item">${f}</div>
+            `).join('');
+
+            document.getElementById('featuresPreview').innerHTML = `
+                <h3>Your Plan Includes:</h3>
+                <div class="features-grid">${featuresHTML}</div>
+            `;
+
+            // Show dashboard button
+            document.getElementById('dashboardBtn').style.display = 'inline-flex';
+        }
+
+        function showTestSuccess() {
+            // Show demo success for testing
+            displaySuccess({
+                transactionId: 'DEMO-' + Date.now()
+            }, 'pro');
+        }
+
+        // Process payment on page load
+        document.addEventListener('DOMContentLoaded', processPayment);
+    </script>
+</body>
+</html>

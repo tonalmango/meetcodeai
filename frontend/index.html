@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetCodeAI ✨ | Where Code Meets Creativity</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="auth-styles.css">
+    <script>
+        // Auto-detect API URL - works with Render.com free domains
+        window.API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+            ? 'http://localhost:5000/api'
+            : 'https://meetcodeai-x3kr.onrender.com/api';
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-code"></i> <span class="logo-text">Meet<span class="logo-highlight">Code</span>AI</span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">How It Works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li id="authNavItem">
+                        <a href="#" id="loginBtn" class="btn-outline" title="Login to request a quote">Login</a>
+                    </li>
+                    <li id="userNavItem" style="display: none;">
+                        <div id="userDropdown" class="user-dropdown">
+                            <button id="userAvatar" class="user-avatar" title="User Profile"></button>
+                            <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
+                                <a href="#" id="adminDashboardLink" style="display: none;"><i class="fas fa-chart-line"></i> Admin Dashboard</a>
+                                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="badge-pill">✨ Where Code Meets Creativity</div>
+                    <h1>Let's Build Something <span class="gradient-text">Insanely Cool</span> Together 🚀</h1>
+                    <p class="hero-subtitle">We're not your average dev shop. Think of us as your secret weapon for creating <span class="highlight-yellow">fire digital experiences</span> that your clients will absolutely love. No boring corporate stuff here!</p>
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn btn-primary">Let's Talk ✨</a>
+                        <a href="#services" class="btn btn-secondary">See What We Do 👀</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Projects Shipped</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">We're Online</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <div class="card-icon blue">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div>
+                            <h4>Lightning Fast ⚡</h4>
+                            <p>Built & Deployed in Days</p>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-card card-2">
+                        <div class="card-icon purple">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <div>
+                            <h4>AI-Powered 🤖</h4>
+                            <p>Smart Automation Included</p>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-card card-3">
+                        <div class="card-icon pink">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div>
+                            <h4>Made with Love 💖</h4>
+                            <p>Every Pixel Matters</p>
+                        </div>
+                    </div>
+                    
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="50" y="50" width="300" height="200" rx="20" fill="url(#grad1)" opacity="0.1"/>
+                        <circle cx="100" cy="100" r="30" fill="#FF6BCB" opacity="0.6" class="pulse"/>
+                        <circle cx="200" cy="150" r="25" fill="#4ECDC4" opacity="0.6" class="pulse" style="animation-delay: 0.5s"/>
+                        <circle cx="300" cy="120" r="20" fill="#FFE66D" opacity="0.6" class="pulse" style="animation-delay: 1s"/>
+                        <rect x="80" y="180" width="240" height="40" rx="10" fill="#FAFAFA"/>
+                        <rect x="80" y="230" width="100" height="20" rx="10" fill="#FF6B6B"/>
+                        <rect x="200" y="230" width="120" height="20" rx="10" fill="#4ECDC4"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>What We're Really Good At ✨</h2>
+                <p>We whip up <span class="highlight-yellow">crazy good digital products</span> that you can totally rebrand and sell as your own. Your secret's safe with us! 🤫</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon web">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Business Websites</h3>
+                    <p>Professional, responsive websites tailored to your client's brand. Built with modern frameworks and optimized for performance.</p>
+                    <div class="service-price">From $149</div>
+                    <a href="#contact" class="btn btn-secondary">Request Quote</a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon landing">
+                        <i class="fas fa-window-restore"></i>
+                    </div>
+                    <h3>Landing Pages</h3>
+                    <p>High-converting landing pages designed to capture leads and drive sales. A/B testing and analytics included.</p>
+                    <div class="service-price">From $129</div>
+                    <a href="#contact" class="btn btn-secondary">Request Quote</a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon web">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Portfolio Websites</h3>
+                    <p>Showcase your client's work with stunning portfolio sites. Custom galleries, case studies, and client testimonials.</p>
+                    <div class="service-price">From $99</div>
+                    <a href="#contact" class="btn btn-secondary">Request Quote</a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon chatbot">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>AI Chatbots</h3>
+                    <p>Intelligent chatbots for websites that provide 24/7 customer support, lead qualification, and appointment scheduling.</p>
+                    <div class="service-price">From $49/mo</div>
+                    <a href="#contact" class="btn btn-secondary">Request Quote</a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Automation</h3>
+                    <p>Set up automated email sequences, newsletters, and marketing campaigns that convert subscribers into customers.</p>
+                    <div class="service-price">From $49/mo</div>
+                    <a href="#contact" class="btn btn-secondary">Request Quote</a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-icon web">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce Solutions</h3>
+                    <p>Complete online stores with product management, secure payment processing, and inventory tracking.</p>
+                    <div class="service-price">From $199</div>
+                    <a href="#contact" class="btn btn-secondary">Request Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Our Process Works</h2>
+                <p>A seamless workflow that ensures you maintain complete control over client relationships while we handle the technical execution.</p>
+            </div>
+            
+            <div class="process-steps">
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>You Bring the Client</h3>
+                    <p>You secure the client and gather their requirements. We provide you with professional questionnaires and briefing templates.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>We Create the Solution</h3>
+                    <p>Our team builds the custom solution based on the client's needs. All work is done under your brand with no attribution to us.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>You Review & Deliver</h3>
+                    <p>We provide you with the finished product for review. You present it to the client as your own work and handle any feedback.</p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Ongoing Support</h3>
+                    <p>We provide ongoing support and maintenance to ensure your solution runs smoothly and stays up-to-date.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pricing That Makes Sense 💰</h2>
+                <p>No hidden fees, no BS. Just <span class="highlight-yellow">honest pricing</span> for dope work.</p>
+            </div>
+            
+            <div class="pricing-options">
+                <!-- Starter Package -->
+                <div class="pricing-card">
+                    <div class="tier-badge starter">✨ STARTER</div>
+                    <h3>Starter Pack</h3>
+                    <div class="price">$149</div>
+                    <p class="tier-subtitle">Perfect for small biz & side hustles</p>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Lightning-fast websites</li>
+                        <li><i class="fas fa-check"></i> Mobile-first design</li>
+                        <li><i class="fas fa-check"></i> SEO optimized</li>
+                        <li><i class="fas fa-check"></i> 1-week delivery</li>
+                        <li><i class="fas fa-check"></i> Contact forms</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Advanced animations</li>
+                    </ul>
+                    
+                    <div class="benefits-tag">Best for: Landing pages, portfolios</div>
+                    <button class="btn btn-secondary plan-btn" data-plan="starter">Let's Go! 🚀</button>
+                </div>
+                
+                <!-- Professional Package -->
+                <div class="pricing-card featured">
+                    <div class="tier-badge pro">🔥 PRO</div>
+                    <div class="featured-badge">MOST POPULAR</div>
+                    <h3>Professional</h3>
+                    <div class="price">$499</div>
+                    <p class="tier-subtitle">Scalable solutions for growing brands</p>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Starter</li>
+                        <li><i class="fas fa-check"></i> Custom animations</li>
+                        <li><i class="fas fa-check"></i> CMS integration</li>
+                        <li><i class="fas fa-check"></i> AI chatbot included</li>
+                        <li><i class="fas fa-check"></i> Analytics dashboard</li>
+                        <li><i class="fas fa-check"></i> 2 weeks support</li>
+                    </ul>
+                    
+                    <div class="benefits-tag">Best for: Full websites, web apps</div>
+                    <button class="btn btn-primary plan-btn" data-plan="pro">Get Started ✨</button>
+                </div>
+                
+                <!-- Enterprise Package -->
+                <div class="pricing-card">
+                    <div class="tier-badge enterprise">💎 ENTERPRISE</div>
+                    <h3>Enterprise</h3>
+                    <div class="price">$999+</div>
+                    <p class="tier-subtitle">Premium solutions for serious players</p>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Pro</li>
+                        <li><i class="fas fa-check"></i> E-commerce ready</li>
+                        <li><i class="fas fa-check"></i> Advanced integrations</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Unlimited revisions</li>
+                        <li><i class="fas fa-check"></i> White-label dashboard</li>
+                    </ul>
+                    
+                    <div class="benefits-tag">Best for: Platforms, SaaS products</div>
+                    <button class="btn btn-secondary plan-btn" data-plan="enterprise">Let's Chat 💬</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What People Are Saying 💬</h2>
+                <p>Real stories from real people (names changed to protect the awesome)</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <p>"These guys absolutely crushed it! Built my client's site in 5 days and they thought I did it all myself 😎 Best investment ever."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">JD</div>
+                        <div>
+                            <div class="author-name">Jordan Davis</div>
+                            <div class="author-project">E-commerce Platform</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The chatbot integration was seamless and my clients are obsessed with it. Response time? Insane. Quality? Off the charts."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">SM</div>
+                        <div>
+                            <div class="author-name">Samantha Mitchell</div>
+                            <div class="author-project">AI Customer Support Tool</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"I've worked with tons of dev teams but MeetCodeAI is different. They actually GET what modern web design should be. 10/10 would recommend."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">AK</div>
+                        <div>
+                            <div class="author-name">Alex Kim</div>
+                            <div class="author-project">Portfolio Website</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <p>"Fast, professional, and zero drama. They turned my rough idea into a polished product that landed me 3 new clients in the first week!"</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">RP</div>
+                        <div>
+                            <div class="author-name">Riley Parker</div>
+                            <div class="author-project">Marketing Landing Page</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <p>"The automation they set up saved me literally hours every week. My clients think I'm a tech wizard now lol"</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">MC</div>
+                        <div>
+                            <div class="author-name">Morgan Chen</div>
+                            <div class="author-project">Workflow Automation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Literally the best money I've spent. They handle all the technical stuff while I focus on growing my business. Dream team!"</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">TW</div>
+                        <div>
+                            <div class="author-name">Taylor Wong</div>
+                            <div class="author-project">Business Website</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Let's Make Something Epic 🎨</h2>
+                <p>Tell us what's on your mind and we'll whip up a <span class="highlight-yellow">custom quote</span> that'll blow your socks off!</p>
+            </div>
+            
+            <div class="contact-form">
+                <form id="quoteForm">
+                    <div class="form-row">
+                        <div class="form-group floating">
+                            <input type="text" id="name" class="form-control" placeholder=" " required>
+                            <label for="name">Your Name ✨</label>
+                        </div>
+                        <div class="form-group floating">
+                            <input type="text" id="agency" class="form-control" placeholder=" " required>
+                            <label for="agency">Agency/Company Name 🏢</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group floating">
+                        <input type="email" id="email" class="form-control" placeholder=" " required>
+                        <label for="email">Email Address 📧</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="services" class="form-label-modern">What Do You Need? 🛠️</label>
+                        <select id="services" class="form-control modern-select" required>
+                            <option value="" disabled selected>Pick your vibe</option>
+                            <option value="website">🌐 Business Website</option>
+                            <option value="landing">🚀 Landing Page</option>
+                            <option value="portfolio">💼 Portfolio Website</option>
+                            <option value="chatbot">🤖 AI Chatbot</option>
+                            <option value="email">📨 Email Automation</option>
+                            <option value="ecommerce">🛒 E-commerce Solution</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="budget" class="form-label-modern">What's Your Budget? 💰</label>
+                        <select id="budget" class="form-control modern-select" required>
+                            <option value="" disabled selected>Pick a range that feels right</option>
+                            <option value="1-2k">💸 $100 - $200</option>
+                            <option value="2-5k">💵 $200 - $500</option>
+                            <option value="5-10k">💴 $500 - $1,000</option>
+                            <option value="10k+">💎 $1,000+</option>
+                            <option value="not-sure">🤷 Not sure yet</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group floating">
+                        <textarea id="details" class="form-control" placeholder=" " rows="5"></textarea>
+                        <label for="details">Tell Us More About Your Vision 💭</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary submit-fancy">Send It! 🚀</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MeetCodeAI ✨</h3>
+                    <p>We build digital magic that actually works. Custom dev, AI-powered solutions, and websites that make you look good AF. 🚀</p>
+                    <p>No attribution. No branding. Just <span class="highlight-yellow">insanely good work</span> delivered under your name.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>What We Do 🛠️</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">🌐 Business Websites</a></li>
+                        <li><a href="#services">🚀 Landing Pages</a></li>
+                        <li><a href="#services">💼 Portfolio Websites</a></li>
+                        <li><a href="#services">🤖 AI Chatbots</a></li>
+                        <li><a href="#services">📨 Email Automation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hit Us Up 💬</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:team.meetcodeai@outlook.com"><i class="fas fa-envelope"></i> team.meetcodeai@outlook.com</a></li>
+                        <li><i class="fas fa-globe"></i> Worldwide (We're everywhere!)</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Vibe ⚡</h3>
+                    <p>Quality code, transparent convos, and support that actually helps. We make stuff that works, looks fire, and makes clients happy. Period. 💯</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 MeetCodeAI. Built with 💖 and lots of ☕</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="auth-modal" style="display: none;">
+        <div class="modal-content auth-modal-content">
+            <span class="modal-close" id="closeLogin">&times;</span>
+            <h2>Login to MeetCodeAI ✨</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p class="auth-switch">Don't have an account? <a href="#" id="switchToRegister">Register here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="auth-modal" style="display: none;">
+        <div class="modal-content auth-modal-content">
+            <span class="modal-close" id="closeRegister">&times;</span>
+            <h2>Create Account</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" class="form-control" minlength="6" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPasswordConfirm">Confirm Password</label>
+                    <input type="password" id="registerPasswordConfirm" class="form-control" minlength="6" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+                <p class="auth-switch">Already have an account? <a href="#" id="switchToLogin">Login here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

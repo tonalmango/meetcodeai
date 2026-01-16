@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - MeetCodeAI</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auth-styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .checkout-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .checkout-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF6BCB 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            color: #1f2d3d;
+            margin-bottom: 20px;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FF6B6B;
+            margin-bottom: 5px;
+        }
+
+        .plan-billing {
+            color: #636E72;
+            font-size: 0.95rem;
+        }
+
+        .checkout-form {
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #1f2d3d;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #DFE6E9;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #FF6B6B;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #DFE6E9;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            color: #636E72;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .paypal-button {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #0070BA 0%, #003087 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .paypal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 112, 186, 0.3);
+        }
+
+        .paypal-button:active {
+            transform: translateY(0);
+        }
+
+        .paypal-button.loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            background: #FFE5E5;
+            color: #C33;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #FF6B6B;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .success-message {
+            background: #E5FFE5;
+            color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #6BCB77;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #FF6B6B;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            color: #FF6BCB;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .plan-features {
+            background: #F5F7FA;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .plan-features h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1f2d3d;
+            margin-bottom: 15px;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            color: #636E72;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li:before {
+            content: '✓';
+            color: #6BCB77;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 600px) {
+            .checkout-container {
+                padding: 25px;
+            }
+
+            .plan-price {
+                font-size: 2.5rem;
+            }
+
+            .checkout-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .form-input {
+                padding: 10px 12px;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <div class="checkout-header">
+            <h1>🚀 Upgrade Your Plan</h1>
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+        <div id="successMessage" class="success-message"></div>
+
+        <!-- Plan Details -->
+        <div id="planDetails"></div>
+
+        <!-- Features List -->
+        <div id="planFeatures" class="plan-features"></div>
+
+        <!-- Checkout Form -->
+        <form class="checkout-form" id="checkoutForm">
+            <div class="form-group">
+                <label for="checkoutName" class="form-label">Full Name *</label>
+                <input 
+                    type="text" 
+                    class="form-input" 
+                    id="checkoutName" 
+                    placeholder="John Doe" 
+                    required
+                    autocomplete="name"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="checkoutEmail" class="form-label">Email Address *</label>
+                <input 
+                    type="email" 
+                    class="form-input" 
+                    id="checkoutEmail" 
+                    placeholder="you@example.com" 
+                    required
+                    autocomplete="email"
+                >
+            </div>
+
+            <div class="divider">
+                <span>Payment Method</span>
+            </div>
+
+            <button 
+                type="button" 
+                class="paypal-button" 
+                id="paypalButton"
+                onclick="handlePayPalPayment()"
+            >
+                <i class="fab fa-paypal"></i> Pay with PayPal
+            </button>
+        </form>
+
+        <div class="back-link">
+            <a href="javascript:history.back()">← Back</a>
+        </div>
+    </div>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID"></script>
+    <script>
+        // Get plan from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const plan = urlParams.get('plan');
+        const userId = urlParams.get('userId');
+
+        // Auto-fill email if user is logged in
+        window.API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+            ? 'http://localhost:5000/api'
+            : 'https://meetcodeai-x3kr.onrender.com/api';
+
+        const authManager = {
+            getToken: () => localStorage.getItem('authToken'),
+            getUser: () => JSON.parse(localStorage.getItem('user') || '{}')
+        };
+
+        // Plan details
+        const PLANS = {
+            starter: {
+                name: 'Starter Plan',
+                price: 150,
+                description: '$150/month - Perfect for freelancers',
+                features: [
+                    '20 quotes per month',
+                    '5 projects per month',
+                    '5,000 API calls/month',
+                    '10 GB storage',
+                    '1 team member',
+                    'Basic analytics'
+                ]
+            },
+            pro: {
+                name: 'Pro Plan',
+                price: 500,
+                description: '$500/month - For growing agencies',
+                features: [
+                    '100 quotes per month',
+                    '20 projects per month',
+                    '50,000 API calls/month',
+                    '100 GB storage',
+                    '5 team members',
+                    'Custom branding',
+                    'Priority support',
+                    'Advanced analytics'
+                ]
+            },
+            enterprise: {
+                name: 'Enterprise Plan',
+                price: 1000,
+                description: '$1,000+/month - Custom solutions',
+                features: [
+                    'Unlimited everything',
+                    'Unlimited team members',
+                    'Unlimited storage',
+                    'Custom branding',
+                    '24/7 priority support',
+                    'Advanced analytics',
+                    'Dedicated account manager'
+                ]
+            }
+        };
+
+        function initializePage() {
+            if (!plan || !PLANS[plan]) {
+                showError('Invalid plan selected');
+                return;
+            }
+
+            const planData = PLANS[plan];
+
+            // Populate plan details
+            document.getElementById('planDetails').innerHTML = `
+                <div class="plan-name">${planData.name}</div>
+                <div class="plan-price">$${planData.price}</div>
+                <div class="plan-billing">per month, billed monthly</div>
+            `;
+
+            // Populate features
+            const featuresHTML = planData.features.map(f => `<li>${f}</li>`).join('');
+            document.getElementById('planFeatures').innerHTML = `
+                <h3>What's Included:</h3>
+                <ul class="features-list">${featuresHTML}</ul>
+            `;
+
+            // Pre-fill email if user is logged in
+            const user = authManager.getUser();
+            if (user && user.email) {
+                document.getElementById('checkoutEmail').value = user.email;
+                document.getElementById('checkoutName').value = user.name || '';
+            }
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('errorMessage');
+            errorEl.textContent = message;
+            errorEl.classList.add('show');
+            setTimeout(() => errorEl.classList.remove('show'), 5000);
+        }
+
+        function showSuccess(message) {
+            const successEl = document.getElementById('successMessage');
+            successEl.textContent = message;
+            successEl.classList.add('show');
+        }
+
+        async function handlePayPalPayment() {
+            const name = document.getElementById('checkoutName').value.trim();
+            const email = document.getElementById('checkoutEmail').value.trim();
+
+            if (!name || !email) {
+                showError('Please fill in all fields');
+                return;
+            }
+
+            const button = document.getElementById('paypalButton');
+            button.disabled = true;
+            button.classList.add('loading');
+            button.innerHTML = '<span class="loading-spinner"></span> Processing...';
+
+            try {
+                // Check if user is logged in
+                let currentUserId = userId || authManager.getUser().id;
+
+                if (!currentUserId) {
+                    // User not logged in - redirect to login first
+                    sessionStorage.setItem('checkoutData', JSON.stringify({
+                        plan,
+                        name,
+                        email
+                    }));
+                    window.location.href = `login.html?redirect=checkout.html?plan=${plan}`;
+                    return;
+                }
+
+                // Create checkout order
+                const orderResponse = await fetch(`${window.API_BASE_URL}/payments/checkout/create-order`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        userId: currentUserId,
+                        plan,
+                        name,
+                        email
+                    })
+                });
+
+                if (!orderResponse.ok) {
+                    const errorData = await orderResponse.json();
+                    throw new Error(errorData.message || 'Failed to create checkout order');
+                }
+
+                const orderData = await orderResponse.json();
+                
+                if (!orderData.data || !orderData.data.approvalLink) {
+                    throw new Error('No approval link from PayPal');
+                }
+
+                // Redirect to PayPal approval
+                window.location.href = orderData.data.approvalLink;
+
+            } catch (error) {
+                console.error('Payment error:', error);
+                showError(error.message || 'Payment failed. Please try again.');
+                button.disabled = false;
+                button.classList.remove('loading');
+                button.innerHTML = '<i class="fab fa-paypal"></i> Pay with PayPal';
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initializePage);
+    </script>
+</body>
+</html>
