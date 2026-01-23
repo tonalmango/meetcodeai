@@ -1,0 +1,3 @@
+{"level":"error","message":"MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.cluster.mongodb.net","service":"white-label-agency","timestamp":"2026-01-03 14:57:18"}
+{"level":"error","message":"MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.cluster.mongodb.net","service":"white-label-agency","timestamp":"2026-01-03 14:57:24"}
+{"level":"error","message":"MongoDB connection error: querySrv ENOTFOUND _mongodb._tcp.cluster.mongodb.net","service":"white-label-agency","timestamp":"2026-01-03 14:57:25"}

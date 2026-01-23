@@ -1,0 +1,56 @@
+# Environment Variables
+.env
+.env.local
+.env.*.local
+.env.production.local
+*.env
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+.DS_Store
+.env.development
+
+# Build & Dist
+dist/
+build/
+*.log
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploads
+uploads/
+public/uploads/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Git
+.git/
+
+# Secrets & Keys
+*.key
+*.pem
+*.p12
+*.pfx
+credentials.json
+service-account.json

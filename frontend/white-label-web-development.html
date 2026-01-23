@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="White-label web development services for agencies. Partner with MeetCodeAI to deliver premium websites, web apps, and digital solutions under your brand.">
+    <meta name="keywords" content="white label web development, white label web development for agencies, white label software development, agency web development">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="White-Label Web Development for Agencies | MeetCodeAI">
+    <meta property="og:description" content="Scale your agency with premium white-label web development. Custom websites, web apps, and digital solutions delivered under your brand.">
+    <meta property="og:url" content="https://meetcodeai.site/white-label-web-development.html">
+    <meta property="og:type" content="website">
+    <title>White-Label Web Development for Agencies | MeetCodeAI - Custom Solutions</title>
+    <link rel="canonical" href="https://meetcodeai.site/white-label-web-development.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth-styles.css">
+    <style>
+        .services-nav {
+            background: #f8f9ff;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e0e7ff;
+            margin-bottom: 2rem;
+        }
+        .services-nav .container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .services-nav a {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: white;
+            border: 1px solid #4ECDC4;
+            border-radius: 6px;
+            color: #4ECDC4;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .services-nav a:hover, .services-nav a.active {
+            background: #4ECDC4;
+            color: white;
+            border-color: #4ECDC4;
+        }
+        .service-hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            color: white;
+            text-align: center;
+        }
+        .service-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        .service-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+        .service-section {
+            padding: 80px 0;
+        }
+        .service-section:nth-child(even) {
+            background: #fafafa;
+        }
+        .service-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        .service-section h3 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+        }
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 4px solid #FF6B6B;
+        }
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .solution-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #e0e7ff;
+        }
+        .solution-card i {
+            font-size: 2.5rem;
+            color: #4ECDC4;
+            margin-bottom: 1rem;
+        }
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .process-step {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        .step-number {
+            min-width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .pricing-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .pricing-card:hover {
+            border-color: #4ECDC4;
+            transform: translateY(-8px);
+        }
+        .pricing-card.featured {
+            border-color: #4ECDC4;
+            background: linear-gradient(135deg, #e0f7fa 0%, #fff 100%);
+        }
+        .price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #4ECDC4;
+            margin: 1rem 0;
+        }
+        .cta-box {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF6BCB 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .cta-box h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .btn-white {
+            background: white;
+            color: #FF6B6B;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-white:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 768px) {
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+            .process-step {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Services Navigation -->
+    <div class="services-nav">
+        <div class="container">
+            <a href="index.html" class="services-nav-back">← Back to Home</a>
+            <a href="white-label-web-development.html" class="active">Web Development</a>
+            <a href="white-label-ai-development.html">AI Development</a>
+            <a href="outsource-web-development.html">Outsourcing</a>
+            <a href="white-label-automation-services.html">Automation</a>
+            <a href="dedicated-development-team.html">Dedicated Team</a>
+        </div>
+    </div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <i class="fas fa-code"></i> <span class="logo-text">Meet<span class="logo-highlight">Code</span>AI</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="index.html#pricing">Request Quote</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="service-hero">
+        <div class="container">
+            <h1>White-Label Web Development for Agencies</h1>
+            <p>Scale your agency without hiring. Partner with MeetCodeAI to deliver quality websites, web applications, and digital solutions under your brand—while we handle the development work.</p>
+            <a href="#contact-section" class="btn btn-primary" style="background: white; color: #4ECDC4;">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="service-section">
+        <div class="container">
+            <h2><i class="fas fa-exclamation-triangle" style="color: #FF6B6B;"></i> The Problem Agencies Face</h2>
+            <p>Running an agency means balancing client expectations with limited development bandwidth. Most agencies face these common obstacles:</p>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3><i class="fas fa-users-slash"></i> Talent Shortage</h3>
+                    <p>Hiring full-time developers is expensive and time-consuming. The talent you need isn't always available when you need it—leading to missed opportunities and bottlenecks in your project pipeline.</p>
+                </div>
+                <div class="problem-card">
+                    <h3><i class="fas fa-chart-line"></i> Scaling Challenges</h3>
+                    <p>Landing a big client is exciting—until you realize your team is maxed out. You're forced to turn down work or deliver rushed, subpar solutions because you lack development capacity.</p>
+                </div>
+                <div class="problem-card">
+                    <h3><i class="fas fa-dollar-sign"></i> High operational costs</h3>
+                    <p>Between salaries, benefits, software licenses, and office space, maintaining an in-house dev team drains your margins. Fixed costs eat into profits, especially during slow months.</p>
+                </div>
+                <div class="problem-card">
+                    <h3><i class="fas fa-clock"></i> Delivery Delays</h3>
+                    <p>Your clients expect quality and speed. Without flexible developer capacity, you risk missed deadlines, lost revenue, and damaged relationships. A white-label partner lets you maintain delivery standards and business growth without internal hiring.</p>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3>Stop turning down opportunities due to capacity limits.</h3>
+                <p style="margin-bottom: 1.5rem;">Instead, partner with a dedicated white-label development team that scales with your project needs.</p>
+                <a href="index.html#pricing" class="btn-white">Schedule a Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="service-section">
+        <div class="container">
+            <h2><i class="fas fa-lightbulb" style="color: #FFE66D;"></i> Our White-Label Solution</h2>
+            <p>MeetCodeAI acts as your invisible development partner. We build premium web solutions that you deliver under your brand—no client ever knows we exist. You focus on client relationships and growth; we handle the code.</p>
+
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Reliable Delivery</h3>
+                    <p>Our focused development team works efficiently on your projects. Timelines vary by scope, but we prioritize quick turnarounds. We balance speed with quality code.</p>
+                </div>
+                <div class="solution-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Professional Development Standards</h3>
+                    <p>Clean, well-structured code built with modern frameworks (React, Node.js, Python). Your clients get maintainable solutions built to grow.</p>
+                </div>
+                <div class="solution-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>100% White-Label</h3>
+                    <p>We're completely invisible. All communication goes through you. Your branding, your client relationship, your success.</p>
+                </div>
+                <div class="solution-card">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                    <h3>Flexible Capacity</h3>
+                    <p>Whether it's a small landing page or a complex application, we match team resources to your workload.</p>
+                </div>
+                <div class="solution-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Dedicated Support</h3>
+                    <p>You get a dedicated project manager who understands your workflows. We prioritize clear communication and aim for quick response times.</p>
+                </div>
+                <div class="solution-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Better Margins</h3>
+                    <p>You avoid full-time salaries and infrastructure costs — reducing overhead while expanding services.</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 1.1rem;">Whether you need a simple landing page or a complex SaaS application, we've got you covered. Our expertise spans <a href="index.html#services" style="color: #667eea; font-weight: 600;">custom web development</a>, e-commerce platforms, CRM integrations, and AI-powered solutions.</p>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="service-section">
+        <div class="container">
+            <h2><i class="fas fa-cogs" style="color: #4ECDC4;"></i> How Our White-Label Process Works</h2>
+            <p>We've streamlined our workflow to integrate seamlessly with your agency. Here's how it works:</p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3>Discovery & Planning</h3>
+                        <p>You share the project requirements (client brief, design files, scope). We ask clarifying questions and provide a detailed timeline and quote within 24 hours. No surprises, no hidden fees.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3>Development Kickoff</h3>
+                        <p>Once approved, we assign a dedicated team and begin development. You get access to a staging environment where you can track progress in real-time. Weekly updates keep you in the loop.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3>Review & Revisions</h3>
+                        <p>We deliver the first version for your review. You provide feedback, and we iterate—typically 2-3 rounds of revisions are included. We don't move forward until you're 100% satisfied.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h3>Launch & Handoff</h3>
+                        <p>We handle deployment, testing, and quality assurance. Then we transfer all files, documentation, and access credentials to you. Your client sees a seamless, professional delivery—all under your brand.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div>
+                        <h3>Ongoing Support (Optional)</h3>
+                        <p>Need ongoing maintenance, updates, or new features? We offer flexible assistance so you can support your clients long-term without hiring full-time developers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3>Ready to Scale Your Agency?</h3>
+                <p style="margin-bottom: 1.5rem;">Partner with MeetCodeAI for dependable white-label web development that fits your workflow and brand identity.</p>
+                <a href="index.html#pricing" class="btn-white">Start Your First Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Startup Success Section -->
+    <section class="service-section">
+        <div class="container">
+            <h2><i class="fas fa-rocket" style="color: #FF6B6B;"></i> Why Early-Stage Companies Choose Us</h2>
+            <p>For startups with limited budgets and tight deadlines, we deliver production-ready websites without the premium agency price tag.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 3rem 0;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid #FF6B6B; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <h3 style="color: #1a1a2e; margin-bottom: 1rem;"><i class="fas fa-bolt" style="color: #FF6B6B; margin-right: 0.5rem;"></i>Launch in 2-3 Weeks</h3>
+                    <p style="color: #666; line-height: 1.6;">We focus on efficient development to get your MVP-ready site launched quickly. Perfect for startups racing to market and testing ideas.</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid #FF6B6B; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <h3 style="color: #1a1a2e; margin-bottom: 1rem;"><i class="fas fa-chart-line" style="color: #FF6B6B; margin-right: 0.5rem;"></i>Conversion-Focused Design</h3>
+                    <p style="color: #666; line-height: 1.6;">Every element is optimized for lead generation. We analyze user behavior and test copy variations to maximize your conversion rates from day one.</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid #FF6B6B; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <h3 style="color: #1a1a2e; margin-bottom: 1rem;"><i class="fas fa-code" style="color: #FF6B6B; margin-right: 0.5rem;"></i>Clean, Scalable Code</h3>
+                    <p style="color: #666; line-height: 1.6;">Your codebase is built for growth. Modern stack (React, Next.js, Node), well-documented, and easy to extend as your startup evolves.</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid #FF6B6B; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <h3 style="color: #1a1a2e; margin-bottom: 1rem;"><i class="fas fa-phone" style="color: #FF6B6B; margin-right: 0.5rem;"></i>Direct Developer Access</h3>
+                    <p style="color: #666; line-height: 1.6;">Work directly with our development team through meeting or email. Direct communication means your questions get answered faster.</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid #FF6B6B; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <h3 style="color: #1a1a2e; margin-bottom: 1rem;"><i class="fas fa-tools" style="color: #FF6B6B; margin-right: 0.5rem;"></i>Future-Proof Infrastructure</h3>
+                    <p style="color: #666; line-height: 1.6;">Built on cloud-native architecture (AWS/Vercel). Auto-scaling, SSL, CDN, and analytics included. Your site grows with your traffic.</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid #FF6B6B; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <h3 style="color: #1a1a2e; margin-bottom: 1rem;"><i class="fas fa-magic" style="color: #FF6B6B; margin-right: 0.5rem;"></i>Post-Launch Support Included</h3>
+                    <p style="color: #666; line-height: 1.6;">30 days of free bug fixes, minor tweaks, and optimization recommendations. We don't disappear after launch—we help you refine based on real user data.</p>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e8eef7 100%); padding: 3rem; border-radius: 12px; margin-top: 3rem; text-align: center;">
+                <h3 style="color: #1a1a2e; margin-bottom: 1rem;">The Startup Advantage</h3>
+                <p style="color: #2d3436; font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.8;">You get quality websites built by skilled developers at fair, transparent prices. No setup fees. Flexible engagement. Just solid code and responsive support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="contact-section" class="service-section" style="background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%); color: white;">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: white;">Stop Turning Down Projects. Start Scaling.</h2>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem;">Partner with MeetCodeAI to deliver quality white-label web development without expanding your in-house team.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html#pricing" class="btn-white">Get Started Today</a>
+                <a href="index.html#services" class="btn" style="background: transparent; border: 2px solid white; color: white;">View All Services</a>
+            </div>
+            <p style="margin-top: 2rem; opacity: 0.9;">⚡ Quick project kickoff | 💬 Fast, responsive communication</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

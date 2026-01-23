@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MeetCodeAI - Custom web development, AI-powered solutions, and digital transformation for modern businesses. Build lightning-fast applications in days.">
+    <meta name="keywords" content="web development, custom software, AI development, digital transformation, web design, app development">
+    <meta name="author" content="MeetCodeAI">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="canonical" href="https://meetcodeai.site/">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meetcodeai.site/">
+    <meta property="og:title" content="MeetCodeAI ✨ | Where Code Meets Creativity">
+    <meta property="og:description" content="Custom web development, AI-powered solutions, and digital transformation. Build innovative applications with our expert team.">
+    <meta property="og:image" content="https://meetcodeai.site/favicon.svg">
+    <meta property="og:site_name" content="MeetCodeAI">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MeetCodeAI ✨ | Where Code Meets Creativity">
+    <meta name="twitter:description" content="Custom web development, AI-powered solutions, and digital transformation for modern businesses.">
+    <meta name="twitter:image" content="https://meetcodeai.site/favicon.svg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <title>MeetCodeAI ✨ | Where Code Meets Creativity - Web Development & AI Solutions</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://meetcodeai.site/">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth-styles.css">
+    <script>
+        // Form submission via Formspree (no backend needed)
+        console.log('MeetCodeAI frontend initialized');
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-code"></i> <span class="logo-text">Meet<span class="logo-highlight">Code</span>AI</span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li class="dropdown-trigger">
+                        <a href="#services">Services</a>
+                        <div class="dropdown-menu-custom">
+                            <a href="white-label-web-development.html">White-Label Web Development</a>
+                            <a href="white-label-ai-development.html">White-Label AI Development</a>
+                            <a href="outsource-web-development.html">Outsource Web Development</a>
+                            <a href="white-label-automation-services.html">White-Label Automation</a>
+                            <a href="dedicated-development-team.html">Dedicated Development Team</a>
+                        </div>
+                    </li>
+                    <li><a href="#process">How It Works</a></li>
+                    <li><a href="#pricing">Request Quote</a></li>
+                    <li id="authNavItem">
+                        <a href="#" id="loginBtn" class="btn-outline" title="Login to request a quote">Login</a>
+                    </li>
+                    <li id="userNavItem" style="display: none;">
+                        <div id="userDropdown" class="user-dropdown">
+                            <button id="userAvatar" class="user-avatar" title="User Profile"></button>
+                            <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
+                                <a href="#" id="adminDashboardLink" style="display: none;"><i class="fas fa-chart-line"></i> Admin Dashboard</a>
+                                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="badge-pill">✨ Your Invisible Tech Team</div>
+                    <h1>White-Label Web & <span class="gradient-text">AI Development</span> for Agencies & Businesses 🚀</h1>
+                    <p class="hero-subtitle">We help agencies and growing businesses deliver <span class="highlight-yellow">high-quality websites, automation, and AI solutions —</span> under their own brand, on time, and without hiring.</p>
+                    <div class="hero-btns">
+                        <a href="#pricing" class="btn btn-primary">Let's Talk ✨</a>
+                        <a href="#services" class="btn btn-secondary">See What We Do 👀</a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <div class="card-icon blue">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div>
+                            <h4>White-label delivery⚡</h4>
+                            <p>Built & Deployed in Days</p>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-card card-2">
+                        <div class="card-icon purple">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <div>
+                            <h4>AI-Powered 🤖</h4>
+                            <p>Smart Automation Included</p>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-card card-3">
+                        <div class="card-icon pink">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Highest optimizations 🚀</h4>
+                            <p>Responsive & SEO-ready website</p>
+                        </div>
+                    </div>
+                    
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="50" y="50" width="300" height="200" rx="20" fill="url(#grad1)" opacity="0.1"/>
+                        <circle cx="100" cy="100" r="30" fill="#FF6BCB" opacity="0.6" class="pulse"/>
+                        <circle cx="200" cy="150" r="25" fill="#4ECDC4" opacity="0.6" class="pulse" style="animation-delay: 0.5s"/>
+                        <circle cx="300" cy="120" r="20" fill="#FFE66D" opacity="0.6" class="pulse" style="animation-delay: 1s"/>
+                        <rect x="80" y="180" width="240" height="40" rx="10" fill="#FAFAFA"/>
+                        <rect x="80" y="230" width="100" height="20" rx="10" fill="#FF6B6B"/>
+                        <rect x="200" y="230" width="120" height="20" rx="10" fill="#4ECDC4"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>What We Deliver ✨</h2>
+                <p>We create <span class="highlight-yellow">incredibly good digital products</span> that you can totally rebrand and sell as your own. Your secret's safe with us! 🤫</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon web">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Business Websites</h3>
+                    <p>Professional, responsive websites tailored to your client's brand. Built with modern frameworks and optimized for performance.</p>
+                    <a href="#pricing" class="btn btn-secondary">Request Quote</a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon landing">
+                        <i class="fas fa-window-restore"></i>
+                    </div>
+                    <h3>Landing Pages</h3>
+                    <p>High-converting landing pages designed to capture leads and drive sales. A/B testing and analytics included.</p>
+                    <a href="#pricing" class="btn btn-secondary">Request Quote</a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon web">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Portfolio Websites</h3>
+                    <p>Showcase your client's work with stunning portfolio sites. Custom galleries, case studies, and client testimonials.</p>
+                    <a href="#pricing" class="btn btn-secondary">Request Quote</a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon chatbot">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>AI Chatbots</h3>
+                    <p>Intelligent chatbots for websites that provide 24/7 customer support, lead qualification, and appointment scheduling.</p>
+                    <a href="#pricing" class="btn btn-secondary">Request Quote</a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Automation</h3>
+                    <p>Set up automated email sequences, newsletters, and marketing campaigns that convert subscribers into customers.</p>
+                    <a href="#pricing" class="btn btn-secondary">Request Quote</a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-icon web">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce Solutions</h3>
+                    <p>Complete online stores with product management, secure payment processing, and inventory tracking.</p>
+                    <a href="#pricing" class="btn btn-secondary">Request Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Our White-Label Partnership Works 🔄</h2>
+                <p>A <span class="highlight-yellow">seamless workflow</span> that ensures you maintain complete control over client relationships while we handle the technical execution.</p>
+            </div>
+            
+            <div class="process-steps">
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>You Bring the Client</h3>
+                    <p>You secure the client and gather their requirements. We provide you with professional questionnaires and briefing templates.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>We Create the Solution</h3>
+                    <p>Our team builds the custom solution based on the client's needs. All work is done under your brand with no attribution to us.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>You Review & Deliver</h3>
+                    <p>We provide you with the finished product for review. You present it to the client as your own work and handle any feedback.</p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Ongoing Support</h3>
+                    <p>We provide ongoing support and maintenance to ensure your solution runs smoothly and stays up-to-date.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request Custom Quote -->
+    <section id="pricing" class="pricing" style="padding:120px 0;background:linear-gradient(135deg,#f5f5f5 0%,#fafafa 100%)">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get Your Custom Quote 🎯</h2>
+                <p>Tell us what you need, and we'll create a <span class="highlight-yellow">personalized quote</span> and follow up fast.</p>
+            </div>
+            
+            <div style="max-width:900px;margin:0 auto">
+                <div style="background:white;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,0.08);padding:3rem">
+                    
+                    <!-- Quote Form Section -->
+                    <div id="quoteFormSection">
+                        <h3 style="color:#1a1a2e;margin-bottom:1.5rem;font-size:1.8rem">📋 Tell Us About Your Project</h3>
+                        
+                        <form id="quoteFormNew" style="display:flex;flex-direction:column;gap:1.5rem">
+                            <!-- Name & Company Row -->
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+                                <div class="form-group floating">
+                                    <input type="text" id="quoteName" class="form-control" placeholder=" " required autocomplete="name">
+                                    <label for="quoteName">Your Name ✨</label>
+                                </div>
+                                <div class="form-group floating">
+                                    <input type="text" id="quoteCompany" class="form-control" placeholder=" " required autocomplete="organization">
+                                    <label for="quoteCompany">Agency/Company 🏢</label>
+                                </div>
+                            </div>
+
+                            <!-- Email Row -->
+                            <div class="form-group floating">
+                                <input type="email" id="quoteEmail" class="form-control" placeholder=" " required autocomplete="email">
+                                <label for="quoteEmail">Email Address 📧</label>
+                            </div>
+
+                            <!-- Services Selection - Multi-select -->
+                            <div>
+                                <label style="display:block;margin-bottom:1rem;font-weight:600;color:#1a1a2e">What Services Do You Need? 🛠️</label>
+                                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem">
+                                    <label style="display:flex;align-items:center;padding:1rem;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:all 0.3s">
+                                        <input type="checkbox" name="services" value="website" class="service-checkbox" style="width:18px;height:18px;margin-right:0.5rem;cursor:pointer">
+                                        <span style="flex:1">🌐 Business Websites</span>
+                                    </label>
+                                    <label style="display:flex;align-items:center;padding:1rem;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:all 0.3s">
+                                        <input type="checkbox" name="services" value="landing" class="service-checkbox" style="width:18px;height:18px;margin-right:0.5rem;cursor:pointer">
+                                        <span style="flex:1">🚀 Landing Pages</span>
+                                    </label>
+                                    <label style="display:flex;align-items:center;padding:1rem;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:all 0.3s">
+                                        <input type="checkbox" name="services" value="portfolio" class="service-checkbox" style="width:18px;height:18px;margin-right:0.5rem;cursor:pointer">
+                                        <span style="flex:1">💼 Portfolio Sites</span>
+                                    </label>
+                                    <label style="display:flex;align-items:center;padding:1rem;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:all 0.3s">
+                                        <input type="checkbox" name="services" value="chatbot" class="service-checkbox" style="width:18px;height:18px;margin-right:0.5rem;cursor:pointer">
+                                        <span style="flex:1">🤖 AI Chatbots</span>
+                                    </label>
+                                    <label style="display:flex;align-items:center;padding:1rem;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:all 0.3s">
+                                        <input type="checkbox" name="services" value="email" class="service-checkbox" style="width:18px;height:18px;margin-right:0.5rem;cursor:pointer">
+                                        <span style="flex:1">📨 Email Automation</span>
+                                    </label>
+                                    <label style="display:flex;align-items:center;padding:1rem;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:all 0.3s">
+                                        <input type="checkbox" name="services" value="ecommerce" class="service-checkbox" style="width:18px;height:18px;margin-right:0.5rem;cursor:pointer">
+                                        <span style="flex:1">🛒 E-commerce</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Budget Range -->
+                            <div>
+                                <label for="quoteBudget" style="display:block;margin-bottom:1rem;font-weight:600;color:#1a1a2e">Budget Range 💰</label>
+                                <select id="quoteBudget" class="form-control modern-select" required style="padding:0.8rem;border-radius:8px;border:2px solid #e0e0e0">
+                                    <option value="" disabled selected>Choose a budget range...</option>
+                                    <option value="under-1000">💸 Under $1,000</option>
+                                    <option value="1000-3k">💵 $1,000 - $3,000</option>
+                                    <option value="3k-5k">💴 $3,000 - $5,000</option>
+                                    <option value="5k-10k">💰 $5,000 - $10,000</option>
+                                    <option value="10k+">💎 $10,000+</option>
+                                    <option value="not-sure">🤷 Not sure yet</option>
+                                </select>
+                            </div>
+
+                            <!-- Project Details -->
+                            <div class="form-group floating">
+                                <textarea id="quoteDetails" class="form-control" placeholder=" " rows="5" style="resize:vertical"></textarea>
+                                <label for="quoteDetails">Tell Us About Your Vision 💭</label>
+                            </div>
+
+                            <!-- Timeline -->
+                            <div>
+                                <label for="quoteTimeline" style="display:block;margin-bottom:1rem;font-weight:600;color:#1a1a2e">When Do You Want to Start? ⏰</label>
+                                <select id="quoteTimeline" class="form-control modern-select" required style="padding:0.8rem;border-radius:8px;border:2px solid #e0e0e0">
+                                    <option value="" disabled selected>Choose a timeline...</option>
+                                    <option value="asap">🔥 ASAP (This week)</option>
+                                    <option value="2weeks">📅 Within 2 weeks</option>
+                                    <option value="month">🗓️ Within a month</option>
+                                    <option value="flexible">🤔 I'm flexible</option>
+                                </select>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary submit-fancy" style="padding:1rem;font-size:1.1rem;margin-top:1rem">
+                                Get Custom Quote 📩
+                            </button>
+
+                            <div id="quoteStatus" style="display:none;margin-top:1rem;font-weight:600"></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Early Partner Insights 💬</h2>
+                <p><span class="highlight-yellow">Real reviews</span> from early partners (names changed to protect the awesome) 😎</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <p>"These guys absolutely crushed it! Built my client's site in 5 days and they thought I did it all myself 😎 Best investment ever."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">JD</div>
+                        <div>
+                            <div class="author-name">Jordan Davis</div>
+                            <div class="author-project">E-commerce Platform</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The chatbot integration was seamless and my clients are obsessed with it. Response time? Insane. Quality? Off the charts."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">SM</div>
+                        <div>
+                            <div class="author-name">Samantha Mitchell</div>
+                            <div class="author-project">AI Customer Support Tool</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"I've worked with tons of dev teams but MeetCodeAI is different. They actually GET what modern web design should be. 10/10 would recommend."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">AK</div>
+                        <div>
+                            <div class="author-name">Alex Kim</div>
+                            <div class="author-project">Portfolio Website</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <p>"Fast, professional, and zero drama. They turned my rough idea into a polished product that landed me 3 new clients in the first week!"</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">RP</div>
+                        <div>
+                            <div class="author-name">Riley Parker</div>
+                            <div class="author-project">Marketing Landing Page</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <p>"The automation they set up saved me literally hours every week. My clients think I'm a tech wizard now lol"</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">MC</div>
+                        <div>
+                            <div class="author-name">Morgan Chen</div>
+                            <div class="author-project">Workflow Automation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Literally the best money I've spent. They handle all the technical stuff while I focus on growing my business. Dream team!"</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">TW</div>
+                        <div>
+                            <div class="author-name">Taylor Wong</div>
+                            <div class="author-project">Business Website</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MeetCodeAI ✨</h3>
+                    <p>MeetCodeAI was created to solve a common problem faced by agencies and businesses — delivering high-quality technical work without increasing operational overhead. 🚀</p>
+                    <p>We operate as a quiet execution partner, working behind the scenes to help our partners scale confidently.</p>
+                    <p>Our focus is simple: reliable delivery, clear communication, and long-term trust.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>What We Do 🛠️</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">🌐 Business Websites</a></li>
+                        <li><a href="#services">🚀 Landing Pages</a></li>
+                        <li><a href="#services">💼 Portfolio Websites</a></li>
+                        <li><a href="#services">🤖 AI Chatbots</a></li>
+                        <li><a href="#services">📨 Email Automation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Why Choose Us 🎯</h3>
+                    <ul class="footer-links">
+                        <li>🔒 NDA-Protected Delivery</li>
+                        <li>🤝 No Direct Client Contact</li>
+                        <li>📅 Clear Timelines & Communication</li>
+                        <li>💰 Scalable Pricing for Agencies</li>
+                        <li>⚡ Modern, Performance-Focused Builds</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hit Us Up 💬</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:team@meetcodeai.site"><i class="fas fa-envelope"></i> team@meetcodeai.site</a></li>
+                        <li><i class="fas fa-globe"></i> Worldwide (We're everywhere!)</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Vibe ⚡</h3>
+                    <p>Quality programming, transparency, and support that actually works. We produce projects that work, look great, and make our customers happy. Period 💯</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 MeetCodeAI. White-Label Web & AI Development Partner.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="auth-modal" style="display: none;">
+        <div class="modal-content auth-modal-content">
+            <span class="modal-close" id="closeLogin">&times;</span>
+            <h2>Login to MeetCodeAI ✨</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" class="form-control" required autocomplete="email" inputmode="email" autocapitalize="none" autocorrect="off" spellcheck="false">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" required autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p class="auth-switch">Don't have an account? <a href="#" id="switchToRegister">Register here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="auth-modal" style="display: none;">
+        <div class="modal-content auth-modal-content">
+            <span class="modal-close" id="closeRegister">&times;</span>
+            <h2>Create Account</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" class="form-control" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" class="form-control" required autocomplete="email" inputmode="email" autocapitalize="none" autocorrect="off" spellcheck="false">
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" class="form-control" minlength="6" required autocomplete="new-password" autocapitalize="none" autocorrect="off" spellcheck="false">
+                </div>
+                <div class="form-group">
+                    <label for="registerPasswordConfirm">Confirm Password</label>
+                    <input type="password" id="registerPasswordConfirm" class="form-control" minlength="6" required autocomplete="new-password" autocapitalize="none" autocorrect="off" spellcheck="false">
+                </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+                <p class="auth-switch">Already have an account? <a href="#" id="switchToLogin">Login here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Chat Widget -->
+    <div id="chatWidget" class="chat-widget" style="display: none;">
+        <!-- Chat Icon Button (bottom-right) -->
+        <button id="chatToggle" class="chat-toggle" title="Chat with us">
+            <i class="fas fa-comments"></i>
+            <span class="chat-badge">1</span>
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chatWindow" class="chat-window" style="display: none;">
+            <!-- Header -->
+            <div class="chat-window-header">
+                <div class="chat-window-title">
+                    <i class="fas fa-robot"></i>
+                    MeetCodeAI Support
+                </div>
+                <button id="chatClose" class="chat-close-btn" title="Close chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Messages -->
+            <div class="chat-window-messages" id="chatWindowMessages">
+                <div class="chat-welcome">
+                    <div class="welcome-emoji">👋</div>
+                    <h3>Hey there!</h3>
+                    <p>How can we help you today?</p>
+                </div>
+            </div>
+
+            <!-- Input -->
+            <div class="chat-window-input">
+                <form id="chatWindowForm" onsubmit="sendChatMessage(event)">
+                    <input 
+                        type="text" 
+                        id="chatWindowInput" 
+                        class="chat-message-input" 
+                        placeholder="Type a message..."
+                        autocomplete="off"
+                    >
+                    <button type="submit" class="chat-send-btn" title="Send">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="quote-form.js"></script>
+</body>
+</html>

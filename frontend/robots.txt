@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /private
+
+# Sitemaps
+Sitemap: https://meetcodeai.site/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
