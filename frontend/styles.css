@@ -16,6 +16,22 @@
     left: 0;
 }
 
+/* Performance optimization - CSS containment */
+.floating-card, .feature-card, .pricing-card {
+    contain: layout style paint;
+}
+
+/* Improve focus visibility for accessibility */
+:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+}
+
+button:focus-visible, a:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+}
+
 /* Toast notifications */
 .notification {
     position: fixed;
@@ -81,6 +97,10 @@
     --gray: #636E72;
     --gray-light: #DFE6E9;
     
+    /* Improved contrast ratios for accessibility */
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, #FF6B6B 0%, #FF6BCB 100%);
     --gradient-secondary: linear-gradient(135deg, #4ECDC4 0%, #4D96FF 100%);
@@ -102,7 +122,7 @@
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: var(--dark);
+    color: #1a1a1a;
     background-color: var(--light);
     overflow-x: hidden;
     position: relative;
@@ -121,7 +141,7 @@ body {
     background: linear-gradient(180deg, transparent 60%, #ffd54f 60%);
     padding: 0 6px;
     font-weight: 700;
-    color: #1f2d3d;
+    color: #2d3436;
     line-height: 1.8;
     display: inline;
     margin-right: 0.25rem;
@@ -224,6 +244,8 @@ section {
     font-size: 1.1rem;
     position: relative;
     overflow: hidden;
+    min-height: 50px;
+    min-width: 100px;
 }
 
 .btn::before {
@@ -244,6 +266,10 @@ section {
     height: 300px;
 }
 
+.btn:active {
+    transform: scale(0.98);
+}
+
 .btn-primary {
     background: var(--gradient-primary);
     color: white;
@@ -253,6 +279,11 @@ section {
 .btn-primary:hover {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+}
+
+.btn-primary:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
 }
 
 .btn-secondary {
@@ -266,6 +297,11 @@ section {
     background: var(--primary);
     color: white;
     transform: translateY(-5px) scale(1.05);
+}
+
+.btn-secondary:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
 }
 
 /* Header */

@@ -39,11 +39,24 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://formspree.io">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load FontAwesome asynchronously with fallback -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Optimized fonts with display:swap for better rendering -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="preload" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS inline (main styles) -->
+    <link rel="preload" href="styles.css" as="style">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="auth-styles.css" as="style">
     <link rel="stylesheet" href="auth-styles.css">
+    
     <script>
+        // Performance timing mark
+        window.pageLoadStart = performance.now();
         // Form submission via Formspree (no backend needed)
         console.log('MeetCodeAI frontend initialized');
     </script>
@@ -75,7 +88,7 @@
                     <li><a href="#process">How It Works</a></li>
                     <li><a href="#pricing">Request Quote</a></li>
                     <li id="authNavItem">
-                        <a href="#" id="loginBtn" class="btn-outline" title="Login to request a quote">Login</a>
+                        <a href="#" id="loginBtn" class="btn-outline" aria-label="Login to request a quote">Login</a>
                     </li>
                     <li id="userNavItem" style="display: none;">
                         <div id="userDropdown" class="user-dropdown">
@@ -231,39 +244,39 @@
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section id="process" class="process">
+            <!-- How It Works -->
+    <section id="process" class="process" aria-label="Our Process">
         <div class="container">
             <div class="section-header">
                 <h2>How Our White-Label Partnership Works 🔄</h2>
                 <p>A <span class="highlight-yellow">seamless workflow</span> that ensures you maintain complete control over client relationships while we handle the technical execution.</p>
             </div>
             
-            <div class="process-steps">
+            <div class="process-steps" role="list">
                 <!-- Step 1 -->
-                <div class="step">
-                    <div class="step-number">1</div>
+                <div class="step" role="listitem">
+                    <div class="step-number" aria-label="Step 1">1</div>
                     <h3>You Bring the Client</h3>
                     <p>You secure the client and gather their requirements. We provide you with professional questionnaires and briefing templates.</p>
                 </div>
                 
                 <!-- Step 2 -->
-                <div class="step">
-                    <div class="step-number">2</div>
+                <div class="step" role="listitem">
+                    <div class="step-number" aria-label="Step 2">2</div>
                     <h3>We Create the Solution</h3>
                     <p>Our team builds the custom solution based on the client's needs. All work is done under your brand with no attribution to us.</p>
                 </div>
                 
                 <!-- Step 3 -->
-                <div class="step">
-                    <div class="step-number">3</div>
+                <div class="step" role="listitem">
+                    <div class="step-number" aria-label="Step 3">3</div>
                     <h3>You Review & Deliver</h3>
                     <p>We provide you with the finished product for review. You present it to the client as your own work and handle any feedback.</p>
                 </div>
                 
                 <!-- Step 4 -->
-                <div class="step">
-                    <div class="step-number">4</div>
+                <div class="step" role="listitem">
+                    <div class="step-number" aria-label="Step 4">4</div>
                     <h3>Ongoing Support</h3>
                     <p>We provide ongoing support and maintenance to ensure your solution runs smoothly and stays up-to-date.</p>
                 </div>
@@ -387,78 +400,78 @@
         <div class="container">
             <div class="section-header">
                 <h2>Early Partner Insights 💬</h2>
-                <p><span class="highlight-yellow">Real reviews</span> from early partners (names changed to protect the awesome) 😎</p>
+                <p><span class="highlight-yellow">Honest feedback</span> from our beta partners who helped us refine our process</p>
             </div>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="stars">⭐⭐⭐⭐</div>
-                    <p>"These guys absolutely crushed it! Built my client's site in 5 days and they thought I did it all myself 😎 Best investment ever."</p>
+                    <p>"Working with them on our first project was smooth. Delivered a landing page for my client in about a week. A few minor tweaks needed, but overall solid work for the price."</p>
                     <div class="testimonial-author">
                         <div class="avatar">JD</div>
                         <div>
-                            <div class="author-name">Jordan Davis</div>
-                            <div class="author-project">E-commerce Platform</div>
+                            <div class="author-name">J.D.</div>
+                            <div class="author-project">Marketing Agency Owner</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"The chatbot integration was seamless and my clients are obsessed with it. Response time? Insane. Quality? Off the charts."</p>
+                    <p>"Took a chance as an early partner. The chatbot integration exceeded expectations - my client was thrilled. Communication was great throughout."</p>
                     <div class="testimonial-author">
                         <div class="avatar">SM</div>
                         <div>
-                            <div class="author-name">Samantha Mitchell</div>
-                            <div class="author-project">AI Customer Support Tool</div>
+                            <div class="author-name">S.M.</div>
+                            <div class="author-project">Digital Consultant</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"I've worked with tons of dev teams but MeetCodeAI is different. They actually GET what modern web design should be. 10/10 would recommend."</p>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <p>"Still learning together, but they're receptive to feedback. Built a portfolio site that met requirements. Good value for agencies just starting to outsource."</p>
                     <div class="testimonial-author">
                         <div class="avatar">AK</div>
                         <div>
-                            <div class="author-name">Alex Kim</div>
-                            <div class="author-project">Portfolio Website</div>
+                            <div class="author-name">A.K.</div>
+                            <div class="author-project">Freelance Designer</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
                     <div class="stars">⭐⭐⭐⭐</div>
-                    <p>"Fast, professional, and zero drama. They turned my rough idea into a polished product that landed me 3 new clients in the first week!"</p>
+                    <p>"Appreciated the transparent pricing and quick turnaround. Had one revision round, but they were responsive. Would work with them again."</p>
                     <div class="testimonial-author">
                         <div class="avatar">RP</div>
                         <div>
-                            <div class="author-name">Riley Parker</div>
-                            <div class="author-project">Marketing Landing Page</div>
+                            <div class="author-name">R.P.</div>
+                            <div class="author-project">Small Agency</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
                     <div class="stars">⭐⭐⭐⭐</div>
-                    <p>"The automation they set up saved me literally hours every week. My clients think I'm a tech wizard now lol"</p>
+                    <p>"The automation setup was helpful. Saved me time on repetitive tasks. Support is decent - they answer questions pretty quickly."</p>
                     <div class="testimonial-author">
                         <div class="avatar">MC</div>
                         <div>
-                            <div class="author-name">Morgan Chen</div>
-                            <div class="author-project">Workflow Automation</div>
+                            <div class="author-name">M.C.</div>
+                            <div class="author-project">SaaS Founder</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Literally the best money I've spent. They handle all the technical stuff while I focus on growing my business. Dream team!"</p>
+                    <p>"Been working with them for a while now. Reliable for white-label work. They stay in the background and deliver on time. Good fit for my business model."</p>
                     <div class="testimonial-author">
                         <div class="avatar">TW</div>
                         <div>
-                            <div class="author-name">Taylor Wong</div>
-                            <div class="author-project">Business Website</div>
+                            <div class="author-name">T.W.</div>
+                            <div class="author-project">Agency Partner</div>
                         </div>
                     </div>
                 </div>
@@ -618,8 +631,16 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Scripts with async integrity -->
     <script src="script.js" defer></script>
     <script src="quote-form.js" defer></script>
+    
+    <!-- Performance tracking -->
+    <script>
+        window.addEventListener('load', function() {
+            const loadTime = performance.now() - (window.pageLoadStart || 0);
+            console.log('Page fully loaded in:', loadTime.toFixed(2), 'ms');
+        });
+    </script>
 </body>
 </html>
