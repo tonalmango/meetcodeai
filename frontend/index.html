@@ -32,6 +32,13 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="canonical" href="https://meetcodeai.site/">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://formspree.io">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -42,10 +49,13 @@
     </script>
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
     <!-- Header -->
-    <header>
+    <header role="banner">
         <div class="container">
-            <nav>
+            <nav aria-label="Main navigation">
                 <a href="#" class="logo">
                     <i class="fas fa-code"></i> <span class="logo-text">Meet<span class="logo-highlight">Code</span>AI</span>
                 </a>
@@ -85,8 +95,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- Hero Section -->    <main id="main-content" role="main">    <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -458,9 +467,10 @@
     </section>
 
 
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
@@ -511,6 +521,10 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scripts loaded with defer for better performance -->
+    <script src="script.js" defer></script>
+    <script src="quote-form.js" defer></script>
 
     <!-- Login Modal -->
     <div id="loginModal" class="auth-modal" style="display: none;">
@@ -608,7 +622,8 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
-    <script src="quote-form.js"></script>
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
+    <script src="quote-form.js" defer></script>
 </body>
 </html>
