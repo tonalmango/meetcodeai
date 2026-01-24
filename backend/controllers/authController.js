@@ -194,11 +194,7 @@ exports.updateProfile = async (req, res, next) => {
         
         const { email, name, password } = req.body;
         
-        console.log('Extracted values - email:', email, 'name:', name, 'password:', password ? '***' : undefined);
-        
-        // Check that at least one field is provided
         if (!email && !name && !password) {
-            console.log('No fields provided');
             return res.status(400).json({
                 status: 'error',
                 message: 'Please provide at least one field to update'
@@ -208,48 +204,34 @@ exports.updateProfile = async (req, res, next) => {
         const user = await User.findById(req.user.id).select('+password');
 
         if (!user) {
-            console.log('User not found');
             return res.status(404).json({
                 status: 'error',
                 message: 'User not found'
             });
         }
 
-        // Update email if provided
-        if (email && email.trim()) {
-            const trimmedEmail = email.trim().toLowerCase();
-            
-            console.log('Processing email update:', trimmedEmail);
-            
-            // Check if email already exists
-            const existingUser = await User.findOne({ email: trimmedEmail });
-            if (existingUser && existingUser._id.toString() !== user._id.toString()) {
-                return res.status(400).json({
-                    status: 'error',
-                    message: 'Email already in use'
-                });
-            }
-            user.email = trimmedEmail;
+        // Update email - just accept it as is
+        if (email) {
+            user.email = String(email).toLowerCase().trim();
+            console.log('Email updated to:', user.email);
         }
 
-        // Update name if provided
-        if (name && name.trim()) {
-            user.name = name.trim();
+        // Update name
+        if (name) {
+            user.name = String(name).trim();
+            console.log('Name updated to:', user.name);
         }
 
-        // Update password if provided
-        if (password && password.trim()) {
-            if (password.trim().length < 6) {
-                return res.status(400).json({
-                    status: 'error',
-                    message: 'Password must be at least 6 characters'
-                });
-            }
-            user.password = password;
+        // Update password
+        if (password) {
+            user.password = String(password);
+            console.log('Password updated');
         }
 
         await user.save();
         const token = generateToken(user._id);
+
+        console.log('Profile saved successfully');
 
         res.status(200).json({
             status: 'success',
@@ -265,6 +247,7 @@ exports.updateProfile = async (req, res, next) => {
             }
         });
     } catch (error) {
+        console.error('ERROR in updateProfile:', error);
         next(error);
     }
 };
